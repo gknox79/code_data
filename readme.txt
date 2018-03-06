@@ -73,7 +73,7 @@ contain the following files.
 Tables
 ======
 
-tables.rtf                  Main table
+tables.rtf                  	Main table
 
 Figures
 =======
