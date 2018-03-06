@@ -49,7 +49,7 @@ Reads raw data from CSV, stores it as Stata data file (dta)
 2) preclean.do
 Removes observations and creates variables
 
-4) tables.do
+3) tables.do
 Performs all analyses and produces rtf tables and figures for slides and paper stored in \output
 
 
@@ -57,8 +57,7 @@ Performs all analyses and produces rtf tables and figures for slides and paper s
 RUNNING THE ANALYSIS
 =====================================================
 
-To replicate the analysis, first follow the setup instructions above, 
-and then run make.bat.
+To replicate the analysis, first follow the setup instructions above, and then run make.bat.
 
 The simplest way to replicate the analysis is to execute make.bat.
 Please configure the local variable statapath to point to your
