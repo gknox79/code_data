@@ -8,6 +8,9 @@ mkdir ..\output
 RMDIR ..\temp /S /Q
 mkdir ..\temp
 
+REM IMPORT
+%statapath% /e do import.do
+
 REM PRE-CLEAN
 %statapath% /e do preclean.do
 

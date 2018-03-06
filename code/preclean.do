@@ -7,20 +7,32 @@
 *****************
 
 * set local working directory (if run from within STATA)
+* capture cd "c:\..enter path..\code"
+
+
 set more off
 clear all
 
 
-sysuse auto.dta, replace
+use ../temp/auto, replace 
 
 
 **********************
-***** REMOVE  VOLVO *****
+**** DROP OBS *******
 **********************
 
 drop if strpos(make, "Volvo")
 
 
+**********************
+***** CREATE VAR *****
+**********************
+
+* replace foreign dummy
+
+encode foreign, gen(foreign_nb)
+drop foreign
+g foreign = foreign_nb-1
 
 
 **********************
@@ -36,7 +48,7 @@ label var ln_price "log price"
 
 
 g gear_ratio_inv=1/gear_ratio
-
+label var gear_ratio_inv "Inv. gear ratio"
 
 
 save ../temp/preclean, replace

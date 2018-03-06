@@ -1,15 +1,15 @@
 
 * install packages
 
-capture ssc inst estout
-capture ssc inst coefplot
+capture ssc inst estout, replace
+capture ssc inst coefplot, replace
+capture ssc install scheme_tufte, replace
 
 
 * set local working directory (if run from within STATA)
 
-*capture cd "D:\UvT_comp\ART\data_code_example"
+* capture cd "c:\..enter path..\code"
 
-* use ../temp/streamagg_panel, clear
 use ../temp/preclean, clear
 
 * estimate models
@@ -22,11 +22,14 @@ estadd local nationality "Domestic"
 
 * output tables
 
-esttab m* using ../output/tables.rtf, replace stats(nationality r2 N)
+esttab m* using ../output/tables.rtf, label replace stats(nationality r2 N) ///
+addnote("Volvo dropped from analysis.") title("{\b Table 1} {\i Comparing coefficients foreign vs. domestic}")
 
 * output plot
 
-coefplot (m2, label(Domestic Cars)) (m1, label(Foreign Cars)), drop(˙cons) xline(0)
-gr export ../output/coeff_foreign_domestic.png, replace width(1600)
+coefplot (m2, label(Domestic Cars)) (m1, label(Foreign Cars)), xtitle("coefficients") ///
+	drop(_cons) xline(0) scheme(tufte) note("Volvo observation dropped")
+
+gr export ../output/coeff_foreign_domestic.png, replace width(1600) 
 
 
