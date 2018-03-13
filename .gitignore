@@ -1,6 +1,9 @@
 *.log
-
+**temp
 *.rtf
 *.dta
 *.png
 *~$.pptx
+**Thumbs.db
+**output
+**/temp*
