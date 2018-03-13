@@ -1,5 +1,5 @@
 @echo off 
-set statapath="c:\Program Files (x86)\Stata14\StataSE-64.exe"
+set statapath="C:\Program Files (x86)\Stata14\Stata-64.exe"
 echo %statapath%
 
 REM DELETE OUTPUT & TEMP FILES
