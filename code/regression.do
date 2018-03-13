@@ -12,12 +12,15 @@ capture ssc install scheme_tufte, replace
 
 use ../temp/preclean, clear
 
+local y price
+local x mpg trunk length turn gear_ratio_inv
+
 * estimate models
 
-eststo m1: regress ln_price mpg trunk length turn gear_ratio_inv if foreign==1
+eststo m1: regress `y' `x' if foreign==1
 estadd local nationality "Foreign"
 
-eststo m2: regress ln_price mpg trunk length turn gear_ratio_inv if foreign==0
+eststo m2: regress `y' `x' if foreign==0
 estadd local nationality "Domestic"
 
 * output tables
